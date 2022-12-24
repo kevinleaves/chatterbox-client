@@ -16,6 +16,7 @@ var MessagesView = {
 
   renderMessage: function(message) {
     // TODO: Render a single message.
+    MessageView.render()
   },
 
   handleClick: function(event) {

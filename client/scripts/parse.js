@@ -7,7 +7,21 @@ var Parse = {
   server: `https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/${window.CAMPUS}`,
 
   create: function(message, successCB, errorCB = null) {
-    // TODO: send a request to the Parse API to save the message
+    // TODO: send a request to the Parse API to save the message INCOMPLETE
+    $.ajax({
+      url: Parse.server,
+      type: 'POST',
+      data: {
+        username: 'chevin',
+        text: 'is anybody there',
+        roomname: 'huhhhh'
+      },
+      contentType: 'application/json',
+      success: successCB,
+      error: errorCB || function(error) {
+        console.error('chatterbox: Failed to fetch messages', error);
+      }
+    });
   },
 
   readAll: function(successCB, errorCB = null) {
