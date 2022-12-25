@@ -12,6 +12,10 @@ var RoomsView = {
     RoomsView.$select.on('change', () => {
       RoomsView.handleChange(event);
     })
+    RoomsView.$button.on('click', () => {
+      RoomsView.handleClick(event);
+    })
+
   },
 
   render: function(rooms) {
@@ -19,7 +23,7 @@ var RoomsView = {
     // call renderRoom on every room key in rooms;
     this.$select.empty();
     for (room in rooms) {
-      this.$select.append(RoomsView.renderRoom(room));
+      RoomsView.renderRoom(room);
     }
   },
 
@@ -27,20 +31,26 @@ var RoomsView = {
     // TODO: Render out a single room.
     // input room name as a string and output/return an option element
     let option = $(`<option value=${roomname}>${roomname}</option>`);
-    return option;
-    // make option element
+    this.$select.append(option)
   },
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
-    console.log(event)
-    console.log(RoomsView.$select.val())
-    console.log(event.target.value)
-    console.log(RoomsView.$select.find(':selected').val())
+    // GOAL: only render chat with same roomname as selected dropdown option
+    let selected = RoomsView.$select.find(':selected').text();
+
+    // get data array, filter it according to roomname
+    let filtered = Messages._data.filter((msg) => {
+      return msg.roomname === selected
+    })
+
+    // render the filtered array
+    MessagesView.render(filtered);
   },
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    let room = window.prompt('add a room rn')
+    Rooms.add(room);
   }
-
 };

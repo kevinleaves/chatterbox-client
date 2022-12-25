@@ -35,6 +35,7 @@ var App = {
       console.log(data)
       Messages.update(data);
       Rooms.update(data);
+
     });
   },
 

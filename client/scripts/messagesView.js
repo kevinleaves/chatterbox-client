@@ -35,4 +35,4 @@ var MessagesView = {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
   }
-};
+};``

@@ -28,8 +28,7 @@ var FormView = {
 
     // post to server using parse.create
     Parse.create(message, (data) => {
-      console.log(data, 'data obj')
-      console.log('successful post')
+      console.log(data, 'successful post')
     })
 
     // site state needs to rerender to capture my posted message

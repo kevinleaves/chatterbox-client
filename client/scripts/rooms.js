@@ -19,6 +19,13 @@ Rooms.update = function (data) {
       this._data[messageObj.roomname] = [];
     }
   }
-
   RoomsView.render(this._data)
+}
+
+// make an add room method
+Rooms.add = function (room) {
+  this._data[room] = [];
+  RoomsView.renderRoom(room)
+  RoomsView.render(this._data)
+
 }
