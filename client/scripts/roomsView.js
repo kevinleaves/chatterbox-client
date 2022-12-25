@@ -11,12 +11,21 @@ var RoomsView = {
     // when this view loads.
   },
 
-  render: function() {
+  render: function(rooms) {
     // TODO: Render out the list of rooms.
+    // call renderRoom on every room key in rooms;
+    for (room in rooms) {
+      this.$select.append(RoomsView.renderRoom(room));
+    }
   },
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
+    // input room name as a string and output/return an option element
+    let option = $(`<option value=${roomname}>${roomname}</option>`);
+    return option;
+    // make option element
+
   },
 
   handleChange: function(event) {

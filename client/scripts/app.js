@@ -17,6 +17,7 @@ var App = {
 
     // Fetch initial batch of messages
     App.startSpinner();
+    App.stopSpinner();
     App.fetch(App.stopSpinner);
 
     // TODO: Make sure the app loads data from the API
@@ -27,11 +28,11 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-      console.log(data[0], '0th', typeof data[0])
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
 
       Messages.update(data);
+      Rooms.update(data);
     });
   },
 
