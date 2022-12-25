@@ -13,7 +13,7 @@ var Rooms = {
 };
 
 Rooms.update = function (data) {
-  // only grab unique roomnames from data array?
+  // only grab unique roomnames from data array? there has to be a more efficient way to do this
   for (let messageObj of data) {
     if (!this._data[messageObj.roomname]) {
       this._data[messageObj.roomname] = [];

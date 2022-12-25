@@ -9,6 +9,9 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    RoomsView.$select.on('change', () => {
+      RoomsView.handleChange(event);
+    })
   },
 
   render: function(rooms) {
@@ -30,6 +33,10 @@ var RoomsView = {
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
+    console.log(event)
+    console.log(RoomsView.$select.val())
+    console.log(event.target.value)
+    console.log(RoomsView.$select.find(':selected').val())
   },
 
   handleClick: function(event) {

@@ -21,17 +21,21 @@ var FormView = {
     let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),
-      // roomname:,
+      roomname: 'lobby',
     }
 
     // post to server using parse.create
+    Parse.create(message, (data) => {
+      console.log(data, 'data obj')
+      console.log('successful post')
+    })
 
+    // site state needs to rerender to capture my posted message
 
-
+    // input box needs to reset back to nothing
+    FormView.$form.find('#message').val('');
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
-
-    console.log('click!');
   },
 
   setStatus: function(active) {

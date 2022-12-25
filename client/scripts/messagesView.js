@@ -12,6 +12,9 @@ var MessagesView = {
 
   render: function(data) {
     // TODO: Render _all_ the messages.
+    // empty the chat box before rerendering to not display duplicates
+    this.$chats.empty();
+
     let html = '';
     // loop through data array
     for (let message of data) {
@@ -28,6 +31,8 @@ var MessagesView = {
     //use render template to render html
     let compile = MessageView.render;
     let compiled = compile(message)
+
+
     return compiled;
   },
 
