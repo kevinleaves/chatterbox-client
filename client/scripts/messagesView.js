@@ -18,10 +18,13 @@ var MessagesView = {
     let html = '';
     // loop through data array
     for (let message of data) {
-      html += this.renderMessage(message);
+      let template = this.renderMessage(message)
+      template = template.replaceAll('<script>', 'hohoho;')
+      html += template;
     }
     // call compile passing in data obj
     // once we have our compiled html string, append it to $chats
+    console.log(html)
     this.$chats.append(html);
   },
 
@@ -31,7 +34,8 @@ var MessagesView = {
     //use render template to render html
     let compile = MessageView.render;
     let compiled = compile(message)
-
+    // compiled.replace('<', '&lt;')
+    // compiled.replace('>', '&gt;')
 
     return compiled;
   },

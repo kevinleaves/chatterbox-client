@@ -28,12 +28,11 @@ var App = {
   },
 
   fetch: function(callback = ()=>{}) {
-    console.log(arguments)
     Parse.readAll((data) => {
       // examine the response from the server request:
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
-
+      console.log(data)
       Messages.update(data);
       Rooms.update(data);
     });

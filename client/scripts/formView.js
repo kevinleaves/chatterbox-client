@@ -21,7 +21,9 @@ var FormView = {
     let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),
-      roomname: 'lobby',
+      // roomname: 'lobby',
+      // not sure if you can do this because you're not supposed to pull data from another view.
+      roomname: RoomsView.$select.val(),
     }
 
     // post to server using parse.create
