@@ -17,6 +17,7 @@ var RoomsView = {
   render: function(rooms) {
     // TODO: Render out the list of rooms.
     // call renderRoom on every room key in rooms;
+    this.$select.empty();
     for (room in rooms) {
       this.$select.append(RoomsView.renderRoom(room));
     }
@@ -28,7 +29,6 @@ var RoomsView = {
     let option = $(`<option value=${roomname}>${roomname}</option>`);
     return option;
     // make option element
-
   },
 
   handleChange: function(event) {
