@@ -10,13 +10,25 @@ var MessagesView = {
     // when this view loads.
   },
 
-  render: function() {
+  render: function(data) {
     // TODO: Render _all_ the messages.
+    let html = '';
+    // loop through data array
+    for (let message of data) {
+      html += this.renderMessage(message);
+    }
+    // call compile passing in data obj
+    // once we have our compiled html string, append it to $chats
+    this.$chats.append(html);
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
-    MessageView.render()
+
+    //use render template to render html
+    let compile = MessageView.render;
+    let compiled = compile(message)
+    return compiled;
   },
 
   handleClick: function(event) {

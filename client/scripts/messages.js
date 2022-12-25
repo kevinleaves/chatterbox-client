@@ -10,9 +10,12 @@ var Messages = {
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
 
-  // need to get the msgs using a get request
+  // make methods to interact with the data, like an update function
 
-  // $.get('https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/:campus', function (data, status) {
-  //   alert(`data: ${data} status: ${status}`)
-  // })
+
+};
+
+Messages.update =  function (data) {
+  this._data = data.slice();
+  MessagesView.render(this._data);
 };
