@@ -15,17 +15,10 @@ var MessagesView = {
     // empty the chat box before rerendering to not display duplicates
     this.$chats.empty();
 
-    let html = '';
-    // loop through data array
     for (let message of data) {
-      let template = this.renderMessage(message)
-      template = template.replaceAll('<script>', 'hohoho;')
-      html += template;
+      // call this.renderMessage on every message
+      this.renderMessage(message)
     }
-    // call compile passing in data obj
-    // once we have our compiled html string, append it to $chats
-    console.log(html)
-    this.$chats.append(html);
   },
 
   renderMessage: function(message) {
@@ -34,15 +27,12 @@ var MessagesView = {
     //use render template to render html
     let compile = MessageView.render;
     let compiled = compile(message)
-    // compiled.replace('<', '&lt;')
-    // compiled.replace('>', '&gt;')
-
-    return compiled;
+    compiled = compiled.replaceAll('<script>', 'hohoho;').replaceAll('</script>', 'no sir')
+    this.$chats.append(compiled)
   },
 
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
   }
-
 };
