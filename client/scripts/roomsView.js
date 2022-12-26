@@ -37,15 +37,25 @@ var RoomsView = {
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
     // GOAL: only render chat with same roomname as selected dropdown option
+    // VERSION 1:
+    // let selected = RoomsView.$select.find(':selected').text();
+
+    // // get data array, filter it according to roomname
+    // let filtered = Messages._data.filter((msg) => {
+    //   return msg.roomname === selected
+    // })
+
+    // // render the filtered array
+    // MessagesView.render(filtered);
+
+    // VERSION 2: use a new get request and query by roomname
+    // get selected string from dropdrown
     let selected = RoomsView.$select.find(':selected').text();
 
-    // get data array, filter it according to roomname
-    let filtered = Messages._data.filter((msg) => {
-      return msg.roomname === selected
+    // new get request pass in selected;
+    Parse.readRoom(selected, (data) => {
+      MessagesView.render(data);
     })
-
-    // render the filtered array
-    MessagesView.render(filtered);
   },
 
   handleClick: function(event) {
