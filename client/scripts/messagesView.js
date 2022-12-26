@@ -8,6 +8,8 @@ var MessagesView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+
+
   },
 
   render: function(data) {
@@ -28,7 +30,10 @@ var MessagesView = {
     let compile = MessageView.render;
     let compiled = compile(message)
     compiled = compiled.replaceAll('<script>', 'hohoho;').replaceAll('</script>', 'no sir')
-    this.$chats.append(compiled)
+    let $compiled = $(compiled);
+    $compiled.find('.username').on('click', Friends.toggleStatus);
+
+    this.$chats.append($compiled)
   },
 
   handleClick: function(event) {

@@ -24,7 +24,7 @@ var App = {
     // continually, instead of just once at the start.
 
     // every few seconds, run app.fetch
-    setInterval(App.fetch, 10000);
+    // setInterval(App.fetch, 10000);
   },
 
   fetch: function(callback = ()=>{}) {
