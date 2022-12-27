@@ -14,6 +14,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    TabsView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
@@ -26,6 +27,7 @@ var App = {
     // every few seconds, run app.fetch
     // setInterval(App.fetch, 10000);
   },
+
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {

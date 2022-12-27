@@ -11,8 +11,6 @@ var Messages = {
   // add to, and generally interact with the messages.
 
   // make methods to interact with the data, like an update function
-
-
 };
 
 Messages.update =  function (data) {

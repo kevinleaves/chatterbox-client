@@ -28,16 +28,22 @@
       <div id="rooms">
         Room:
         <select></select>
-        <button>Add Room</button>
+        <button id="addRoom">Add Room</button>
+        <button id="newTab">Open in new tab</button>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>
         <input type="submit" name="submit" class="submit"/>
       </form>
     </div>
+    <div id="tabs">
+    </div>
     <div id="chats"></div>
     <script src="client/env/config.js"></script>
     <script src="client/scripts/parse.js"></script>
+    <script src="client/scripts/tabs.js"></script>
+    <script src="client/scripts/tabsView.js"></script>
+    <script src="client/scripts/tabView.js"></script>
     <script src="client/scripts/rooms.js"></script>
     <script src="client/scripts/friends.js"></script>
     <script src="client/scripts/messages.js"></script>

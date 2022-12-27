@@ -88,3 +88,14 @@ form input[type=text] {
     background-color: #0090da;
 }
 
+#tabs {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* .tab {
+
+} */

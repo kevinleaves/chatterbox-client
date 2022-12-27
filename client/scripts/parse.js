@@ -35,6 +35,7 @@ var Parse = {
     });
   },
 
+  // query db using passed in roomname
   readRoom: function (roomname, successCB, errorCB = null) {
     $.ajax({
       url: Parse.server,

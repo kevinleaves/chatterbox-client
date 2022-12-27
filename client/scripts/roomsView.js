@@ -3,7 +3,7 @@
 
 var RoomsView = {
 
-  $button: $('#rooms button'),
+  $button: $('#rooms #addRoom'),
   $select: $('#rooms select'),
 
   initialize: function() {
@@ -15,7 +15,6 @@ var RoomsView = {
     RoomsView.$button.on('click', () => {
       RoomsView.handleClick(event);
     })
-
   },
 
   render: function(rooms) {
@@ -37,16 +36,6 @@ var RoomsView = {
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
     // GOAL: only render chat with same roomname as selected dropdown option
-    // VERSION 1:
-    // let selected = RoomsView.$select.find(':selected').text();
-
-    // // get data array, filter it according to roomname
-    // let filtered = Messages._data.filter((msg) => {
-    //   return msg.roomname === selected
-    // })
-
-    // // render the filtered array
-    // MessagesView.render(filtered);
 
     // VERSION 2: use a new get request and query by roomname
     // get selected string from dropdrown
@@ -54,6 +43,8 @@ var RoomsView = {
 
     // new get request pass in selected;
     Parse.readRoom(selected, (data) => {
+      console.log(data, 'it works here')
+      Messages.update(data)
       MessagesView.render(data);
     })
   },
@@ -62,5 +53,5 @@ var RoomsView = {
     // TODO: Handle the user clicking the "Add Room" button.
     let room = window.prompt('add a room rn')
     Rooms.add(room);
-  }
+  },
 };
