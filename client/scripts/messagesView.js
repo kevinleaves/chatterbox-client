@@ -31,7 +31,7 @@ var MessagesView = {
     let compiled = compile(message)
     compiled = compiled.replaceAll('<script>', 'hohoho;').replaceAll('</script>', 'no sir')
     let $compiled = $(compiled);
-    $compiled.find('.username').on('click', Friends.toggleStatus);
+    $compiled.find('.username').on('click', this.handleClick)
 
     this.$chats.append($compiled)
   },
@@ -39,5 +39,6 @@ var MessagesView = {
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+    Friends.toggleStatus(event.target.innerHTML)
   }
 };``

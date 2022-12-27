@@ -24,8 +24,10 @@ Rooms.update = function (data) {
 
 // make an add room method
 Rooms.add = function (room) {
+  console.log(room)
   this._data[room] = [];
-  RoomsView.renderRoom(room)
+  console.log(this._data)
+  // RoomsView.renderRoom(room)
   RoomsView.render(this._data)
 
 }

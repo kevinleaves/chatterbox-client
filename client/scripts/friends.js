@@ -11,14 +11,14 @@ var Friends = {
   // and check the friendship status of other users.
 };
 
-Friends.toggleStatus = function (event) {
+Friends.toggleStatus = function (username) {
   // on click of username, stores that username
-  let username = event.target.innerHTML;
 
   // adds username to _data
   Friends._data[username] = [];
 
   // finds every chat element in $chats whos username matches clicked username
+
   let $listOfChats = $('#chats').children()
   let filtered = $listOfChats.filter((idx, element) => {
     return $(element).find('.username')[0].innerHTML === username;

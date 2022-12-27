@@ -23,9 +23,9 @@ var FormView = {
       text: FormView.$form.find('#message').val(),
       // roomname: 'lobby',
       // not sure if you can do this because you're not supposed to pull data from another view.
-      roomname: RoomsView.$select.val(),
+      roomname: RoomsView.$select.find(':selected').text(),
     }
-
+    console.log(message)
     // post to server using parse.create
     Parse.create(message, (data) => {
       console.log(data, 'successful post')
