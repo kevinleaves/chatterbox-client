@@ -97,5 +97,10 @@ form input[type=text] {
 }
 
 /* .tab {
-
+  background-color: #0090da;
 } */
+
+.toggle {
+  background-color: #0090da;
+}
+

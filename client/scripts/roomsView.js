@@ -43,7 +43,6 @@ var RoomsView = {
 
     // new get request pass in selected;
     Parse.readRoom(selected, (data) => {
-      console.log(data, 'it works here')
       Messages.update(data)
       MessagesView.render(data);
     })

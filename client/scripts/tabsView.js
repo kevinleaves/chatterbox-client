@@ -47,10 +47,12 @@ let TabsView = {
 
   handleTabClick: function (event) {
     let room = event.target.innerText;
+    event.target.classList.add('toggle')
     Parse.readRoom(room, (data) => {
       Messages.update(data)
       MessagesView.render(data);
     })
+
   }
 };
 
