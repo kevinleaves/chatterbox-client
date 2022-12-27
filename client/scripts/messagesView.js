@@ -31,7 +31,7 @@ var MessagesView = {
     let compiled = compile(message)
     compiled = compiled.replaceAll('<script>', 'hohoho;').replaceAll('</script>', 'no sir')
     let $compiled = $(compiled);
-    $compiled.find('.username').on('click', this.handleClick)
+    $compiled.find('.username').on('click', this.handleClick);
 
     this.$chats.append($compiled)
   },
