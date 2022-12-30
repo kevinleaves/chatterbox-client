@@ -12,14 +12,15 @@ var Rooms = {
 
 };
 
-Rooms.update = function (data) {
+Rooms.update = function (data, callback = () => {}) {
   // only grab unique roomnames from data array? there has to be a more efficient way to do this
   for (let messageObj of data) {
     if (!this._data[messageObj.roomname]) {
       this._data[messageObj.roomname] = [];
     }
   }
-  RoomsView.render(this._data)
+  // RoomsView.render(this._data)
+  callback();
 }
 
 // make an add room method

@@ -39,6 +39,7 @@ var RoomsView = {
 
     // VERSION 2: use a new get request and query by roomname
     // get selected string from dropdrown
+
     let selected = RoomsView.$select.find(':selected').text();
 
     // new get request pass in selected;
@@ -46,6 +47,14 @@ var RoomsView = {
       Messages.update(data)
       MessagesView.render(data);
     })
+
+    // PERIODICALLY REFRESH ROOM PAGE WHEN WE CHANGE INTO A NEW ROOM. BROKEN ATM
+    let iid = setInterval(function () {
+      Parse.readRoom(selected, (data) => {
+        Messages.update(data);
+        Rooms.update(data);
+      })
+    }, 10000)
   },
 
   handleClick: function(event) {

@@ -12,14 +12,14 @@ var MessagesView = {
 
   },
 
-  render: function(data) {
+  render: function(messages) {
     // TODO: Render _all_ the messages.
     // empty the chat box before rerendering to not display duplicates
-    this.$chats.empty();
+    MessagesView.$chats.empty();
 
-    for (let message of data) {
+    for (let message of messages) {
       // call this.renderMessage on every message
-      this.renderMessage(message)
+      MessagesView.renderMessage(message)
     }
   },
 
@@ -33,7 +33,7 @@ var MessagesView = {
     let $compiled = $(compiled);
     $compiled.find('.username').on('click', this.handleClick);
 
-    this.$chats.append($compiled)
+    this.$chats.prepend($compiled)
   },
 
   handleClick: function(event) {
@@ -41,4 +41,4 @@ var MessagesView = {
     // (this should add the sender to the user's friend list).
     Friends.toggleStatus(event.target.innerHTML)
   }
-};``
+};

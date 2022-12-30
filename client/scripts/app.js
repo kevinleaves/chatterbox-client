@@ -24,8 +24,14 @@ var App = {
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
 
-    // every few seconds, run app.fetch
-    // setInterval(App.fetch, 10000);
+    // every few seconds, run Parse.readAll
+    // setInterval(function () {
+    //   Parse.readAll((data) => {
+    //     Messages.update(data);
+    //     Rooms.update(data);
+    //   })
+    // }, 10000)
+    setInterval(App.fetch, 10000)
   },
 
 
@@ -34,8 +40,9 @@ var App = {
       // examine the response from the server request:
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
-      Messages.update(data);
-      Rooms.update(data);
+      console.log(data)
+      Messages.update(data, MessagesView.render);
+      Rooms.update(data, RoomsView.render);
     });
   },
 
