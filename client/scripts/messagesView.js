@@ -16,7 +16,6 @@ var MessagesView = {
     // TODO: Render _all_ the messages.
     // empty the chat box before rerendering to not display duplicates
     MessagesView.$chats.empty();
-
     for (let message of messages) {
       // call this.renderMessage on every message
       MessagesView.renderMessage(message)
@@ -31,9 +30,9 @@ var MessagesView = {
     let compiled = compile(message)
     compiled = compiled.replaceAll('<script>', 'hohoho;').replaceAll('</script>', 'no sir')
     let $compiled = $(compiled);
-    $compiled.find('.username').on('click', this.handleClick);
+    $compiled.find('.username').on('click', MessagesView.handleClick);
 
-    this.$chats.prepend($compiled)
+    MessagesView.$chats.prepend($compiled)
   },
 
   handleClick: function(event) {

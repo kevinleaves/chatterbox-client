@@ -17,15 +17,13 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
 
-    let roomname = RoomsView.$select.find(':selected').text();
+    // let roomname = RoomsView.$select.find(':selected').text();
 
     // form a message obj within handleSubmit
     let message = {
       username: App.username,
       text: FormView.$form.find('#message').val(),
-      // roomname: 'lobby',
-      // not sure if you can do this because you're not supposed to pull data from another view.
-      roomname: roomname,
+      roomname: Rooms.selected,
     }
 
     // post to server using parse.create
@@ -37,13 +35,13 @@ var FormView = {
     FormView.$form.find('#message').val('');
 
     // site state needs to rerender to capture my posted message
-    Parse.readRoom(roomname, (data) => {
-      Messages.update(data)
-      MessagesView.render(data);
-      App.startSpinner();
-    })
+    App.fetch();
+    // Parse.readRoom(roomname, (data) => {
+    //   Messages.update(data)
+    //   MessagesView.render(data);
+    //   App.startSpinner();
+    // })
   },
-
 
   setStatus: function(active) {
     var status = active ? 'true' : null;
