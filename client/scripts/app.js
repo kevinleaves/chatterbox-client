@@ -14,22 +14,35 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    TabsView.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
+    App.stopSpinner();
     App.fetch(App.stopSpinner);
 
     // TODO: Make sure the app loads data from the API
     // continually, instead of just once at the start.
+
+    // every few seconds, run Parse.readAll
+    // setInterval(function () {
+    //   Parse.readAll((data) => {
+    //     Messages.update(data);
+    //     Rooms.update(data);
+    //   })
+    // }, 10000)
+    setInterval(App.fetch, 10000)
   },
+
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
+      console.log(data)
+      Messages.update(data, MessagesView.render);
+      Rooms.update(data, RoomsView.render);
     });
   },
 
