@@ -31,7 +31,7 @@ var App = {
     //     Rooms.update(data);
     //   })
     // }, 10000)
-    // setInterval(App.fetch, 10000)
+    setInterval(App.fetch, 10000)
   },
 
 

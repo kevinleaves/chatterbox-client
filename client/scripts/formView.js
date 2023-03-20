@@ -36,11 +36,6 @@ var FormView = {
 
     // site state needs to rerender to capture my posted message
     App.fetch();
-    // Parse.readRoom(roomname, (data) => {
-    //   Messages.update(data)
-    //   MessagesView.render(data);
-    //   App.startSpinner();
-    // })
   },
 
   setStatus: function(active) {

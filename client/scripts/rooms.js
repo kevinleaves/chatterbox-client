@@ -10,7 +10,6 @@ var Rooms = {
   // TODO: Define methods which allow you to add rooms, update the list,
   selected: 'lobby',
   // mark a room as selected, etc.
-
 };
 
 // items
@@ -31,7 +30,6 @@ Rooms.add = function (room, callback= () => {}) {
   callback(Rooms.items())
 }
 
-
 Rooms.update = function (data, callback) {
   // only grab unique roomnames from data array? there has to be a more efficient way to do this
   for (let messageObj of data) {
@@ -39,6 +37,5 @@ Rooms.update = function (data, callback) {
       Rooms.add(messageObj.roomname);
     }
   }
-
   callback(Rooms.items());
 }
